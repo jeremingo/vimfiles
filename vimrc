@@ -1,22 +1,36 @@
+"syntax highlighting
 syntax on
+
+"relative number lines and absolute line number on curser
 set number relativenumber
+
+"line and column number on bottom
 set ruler
+
+"height of cmd line
 set cmdheight=1
+
+"show matching bracket
 set showmatch
+
+"
 set mat=2
+
 "
 set expandtab
 set smarttab
 set shiftwidth=4
 set tabstop=4
+
+"auto indent
 set ai
 set si
 set lbr
 set tw=500
 set wrap
 set cinwords=""
-"
-"
+
+
 " Map auto complete of (, ", ', [
 inoremap $1 ()<esc>i
 inoremap $2 []<esc>i
@@ -24,13 +38,7 @@ inoremap $3 {}<esc>i
 inoremap $4 {<esc>o}<esc>O
 inoremap $q ''<esc>i
 inoremap $e ""<esc>i
-"
-"
-""augroup numbertoggle
-""	autocmd!
-""	autocmd BufEnter,FocusGained,InsertLeave,WinEnter * if &nu | set relativenumber | endif
-""	autocmd BufLeave,FocusLost,InsertEnter,WinLeave * if &nu | set norelativenumber | endif
-""augroup END
+
 "
 set wildmenu
 "
@@ -43,11 +51,14 @@ endif
 "
 set ignorecase
 set smartcase
-"
-set hlsearch
-set incsearch
-nnoremap <CR> :noh<CR>
 
+"highlight search results as search typed in cmd line
+set incsearch
+
+"map enter to set no highlight
+nnoremap <CR> :nohlsearch<CR>
+
+"open file in last curser location
 if has("autocmd")
     au BufReadPost * if line("'\"") > 0 && line("'\"") <= line("$") | exe "normal! g`\"" | endif
 endif
