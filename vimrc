@@ -67,6 +67,8 @@ if has("autocmd")
     au BufReadPost * if line("'\"") > 0 && line("'\"") <= line("$") | exe "normal! g`\"" | endif
 endif
 
+command! Tags !ctags -R -f ./.git/tags . 
+
 "for vim-gitgutter
 
 "update signs faster
