@@ -10,6 +10,9 @@ set ruler
 "height of cmd line
 set cmdheight=1
 
+"map esc in insert mode to sd
+inoremap sd <esc>
+ 
 "show matching bracket
 set showmatch
 
@@ -53,6 +56,7 @@ set ignorecase
 set smartcase
 
 "highlight search results as search typed in cmd line
+set hlsearch
 set incsearch
 
 "map enter to set no highlight
