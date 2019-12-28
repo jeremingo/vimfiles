@@ -10,8 +10,8 @@ set ruler
 "height of cmd line
 set cmdheight=1
 
-"map esc in insert mode to sd
-inoremap sd <esc>
+"map esc in insert mode to xc
+inoremap xc <esc>
  
 "show matching bracket
 set showmatch
