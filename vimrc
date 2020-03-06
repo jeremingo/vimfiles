@@ -7,6 +7,9 @@ set number relativenumber
 "line and column number on bottom
 set ruler
 
+"show command on bottom
+set showcmd
+
 "height of cmd line
 set cmdheight=1
 
