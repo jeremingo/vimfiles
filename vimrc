@@ -12,9 +12,6 @@ set showcmd
 
 "height of cmd line
 set cmdheight=1
-
-"map esc in insert mode to xc
-inoremap xc <esc>
  
 "show matching bracket
 set showmatch
@@ -80,5 +77,9 @@ set updatetime=100
 "show signcolumn when there are no signs
 set signcolumn=yes
 
+"for vim-subversive
+
+"map s
+nmap s <plug>(SubversiveSubstituteRange)
 "plugin definitions for vim-plug
 source ~/.vim/plugins.vim
