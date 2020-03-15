@@ -81,5 +81,10 @@ set signcolumn=yes
 
 "map s
 nmap s <plug>(SubversiveSubstituteRange)
+
 "plugin definitions for vim-plug
 source ~/.vim/plugins.vim
+
+" colorscheme
+colorscheme jellybeans
+set background=dark
