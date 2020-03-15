@@ -10,6 +10,9 @@ set ruler
 " show command on bottom
 set showcmd
 
+" keep curser two lines from top and bottom
+set scrolloff=2
+
 " height of cmd line
 set cmdheight=1
  
