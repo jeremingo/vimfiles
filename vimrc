@@ -82,6 +82,9 @@ set signcolumn=yes
 " map s
 nmap s <plug>(SubversiveSubstituteRange)
 
+" ie = inner entire buffer
+onoremap ie :exec "normal! ggVG"<cr>
+
 " plugin definitions for vim-plug
 source ~/.vim/plugins.vim
 
