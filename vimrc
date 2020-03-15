@@ -89,3 +89,10 @@ source ~/.vim/plugins.vim
 " colorscheme
 colorscheme jellybeans
 set background=dark
+
+" for vim-gitgutter
+
+" highlight to default colors
+highlight GitGutterAdd    guifg=#009900 ctermfg=2
+highlight GitGutterChange guifg=#bbbb00 ctermfg=3
+highlight GitGutterDelete guifg=#ff2222 ctermfg=1
