@@ -7,5 +7,6 @@ Plug 'airblade/vim-gitgutter'
 Plug 'svermeulen/vim-subversive'
 Plug 'justinmk/vim-syntax-extra'
 Plug 'rafi/awesome-vim-colorschemes'
+Plug 'ludovicchabant/vim-gutentags'
 
 call plug#end()
