@@ -1,4 +1,4 @@
-"plugin definitions for vim-plug
+" plugin definitions for vim-plug
 call plug#begin('~/.vim/plugged')
 
 Plug 'tpope/vim-commentary'

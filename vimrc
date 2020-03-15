@@ -1,19 +1,19 @@
-"syntax highlighting
+" syntax highlighting
 syntax on
 
-"relative number lines and absolute line number on curser
+" relative number lines and absolute line number on curser
 set number relativenumber
 
-"line and column number on bottom
+" line and column number on bottom
 set ruler
 
-"show command on bottom
+" show command on bottom
 set showcmd
 
-"height of cmd line
+" height of cmd line
 set cmdheight=1
  
-"show matching bracket
+" show matching bracket
 set showmatch
 
 "
@@ -25,7 +25,7 @@ set smarttab
 set shiftwidth=4
 set tabstop=4
 
-"auto indent
+" auto indent
 set ai
 set si
 set lbr
@@ -55,34 +55,34 @@ endif
 set ignorecase
 set smartcase
 
-"highlight search results as search typed in cmd line
+" highlight search results as search typed in cmd line
 set hlsearch
 set incsearch
 
-"map enter to set no highlight
+" map enter to set no highlight
 nnoremap <CR> :nohlsearch<CR>
 
-"open file in last curser location
+" open file in last curser location
 if has("autocmd")
     au BufReadPost * if line("'\"") > 0 && line("'\"") <= line("$") | exe "normal! g`\"" | endif
 endif
 
 command! Tags !ctags -R -f ./.git/tags . 
 
-"for vim-gitgutter
+" for vim-gitgutter
 
-"update signs faster
+" update signs faster
 set updatetime=100
 
-"show signcolumn when there are no signs
+" show signcolumn when there are no signs
 set signcolumn=yes
 
-"for vim-subversive
+" for vim-subversive
 
-"map s
+" map s
 nmap s <plug>(SubversiveSubstituteRange)
 
-"plugin definitions for vim-plug
+" plugin definitions for vim-plug
 source ~/.vim/plugins.vim
 
 " colorscheme
