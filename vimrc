@@ -38,12 +38,13 @@ set cinwords=""
 
 
 " Map auto complete of (, ", ', [
-inoremap $1 ()<esc>i
-inoremap $2 []<esc>i
-inoremap $3 {}<esc>i
-inoremap $4 {<esc>o}<esc>O
-inoremap $q ''<esc>i
-inoremap $e ""<esc>i
+inoremap (( ()<esc>i
+inoremap [[ []<esc>i
+inoremap }} {}<esc>i
+inoremap {{ {<esc>o}<esc>O
+inoremap '' ''<esc>i
+inoremap "" ""<esc>i
+inoremap << <><esc>i
 
 "
 set wildmenu
