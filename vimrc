@@ -66,9 +66,6 @@ set smartcase
 set hlsearch
 set incsearch
 
-" map enter to set no highlight
-nnoremap <CR> :nohlsearch<CR>
-
 " open file in last curser location
 if has("autocmd")
     au BufReadPost * if line("'\"") > 0 && line("'\"") <= line("$") | exe "normal! g`\"" | endif
