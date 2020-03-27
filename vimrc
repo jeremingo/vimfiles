@@ -40,6 +40,9 @@ inoremap '' ''<esc>i
 inoremap "" ""<esc>i
 inoremap << <><esc>i
 
+" short ttimeoutlen for slow esc and maps
+set ttimeoutlen=50
+
 "
 set wildmenu
 "
