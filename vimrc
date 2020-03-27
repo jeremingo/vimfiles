@@ -4,21 +4,12 @@ syntax on
 " relative number lines and absolute line number on curser
 set number relativenumber
 
-" line and column number on bottom
-set ruler
-
 " cursorline
 set cursorline
-
-" show command on bottom
-set showcmd
 
 " keep curser two lines from top and bottom
 set scrolloff=2
 
-" height of cmd line
-set cmdheight=1
- 
 " show matching bracket
 set showmatch
 
