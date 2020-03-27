@@ -9,5 +9,6 @@ Plug 'justinmk/vim-syntax-extra'
 Plug 'rafi/awesome-vim-colorschemes'
 Plug 'ludovicchabant/vim-gutentags'
 Plug 'junegunn/vim-slash'
+Plug 'itchyny/lightline.vim'
 
 call plug#end()
