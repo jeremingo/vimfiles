@@ -7,6 +7,9 @@ set number relativenumber
 " line and column number on bottom
 set ruler
 
+" cursorline
+set cursorline
+
 " show command on bottom
 set showcmd
 
