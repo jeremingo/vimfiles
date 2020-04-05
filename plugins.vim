@@ -11,6 +11,7 @@ Plug 'ludovicchabant/vim-gutentags'
 Plug 'junegunn/vim-slash'
 Plug 'itchyny/lightline.vim'
 Plug 'tpope/vim-pathogen'
+Plug 'tpope/vim-surround'
 Plug 'lervag/vimtex'
 Plug 'ying17zi/vim-live-latex-preview'
 
