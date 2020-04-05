@@ -107,3 +107,8 @@ set noshowmode
 let g:lightline = {
     \ 'colorscheme': 'jellybeans',
     \ }
+
+" for vim-live-latex-preview
+
+execute pathogen#infect()
+filetype plugin indent on
