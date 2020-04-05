@@ -12,9 +12,7 @@ set scrolloff=2
 
 " show matching bracket
 set showmatch
-
-"
-set mat=2
+set matchtime=2
 
 "
 set expandtab
@@ -23,10 +21,10 @@ set shiftwidth=4
 set tabstop=4
 
 " auto indent
-set ai
-set si
-set lbr
-set tw=500
+set autoindent
+set smartindent
+set linebreak
+set textwidth=500
 set wrap
 set cinwords=""
 
