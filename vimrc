@@ -7,6 +7,9 @@ syntax on
 " relative number lines and absolute line number on curser
 set number relativenumber
 
+" hidden buffers for easy switching
+set hidden
+
 " cursorline
 set cursorline
 
