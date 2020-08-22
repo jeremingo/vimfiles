@@ -34,16 +34,6 @@ set textwidth=500
 set wrap
 set cinwords=""
 
-
-" Map auto complete of (, ", ', [
-inoremap (( ()<esc>i
-inoremap [[ []<esc>i
-inoremap }} {}<esc>i
-inoremap {{ {<esc>o}<esc>O
-inoremap '' ''<esc>i
-inoremap "" ""<esc>i
-inoremap << <><esc>i
-
 " short ttimeoutlen for slow esc and maps
 set ttimeoutlen=50
 
