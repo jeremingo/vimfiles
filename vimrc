@@ -55,9 +55,7 @@ set hlsearch
 set incsearch
 
 " open file in last curser location
-if has("autocmd")
-    au BufReadPost * if line("'\"") > 0 && line("'\"") <= line("$") | exe "normal! g`\"" | endif
-endif
+autocmd BufReadPost * if line("'\"") > 0 && line("'\"") <= line("$") | exe "normal! g`\"" | endif
 
 " for vim-gitgutter
 
