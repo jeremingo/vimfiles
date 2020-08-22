@@ -23,8 +23,8 @@ set matchtime=2
 "
 set expandtab
 set smarttab
-set shiftwidth=4
-set tabstop=4
+set shiftwidth=2
+set tabstop=2
 
 " auto indent
 set autoindent
