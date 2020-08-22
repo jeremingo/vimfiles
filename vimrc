@@ -86,7 +86,29 @@ nmap s <plug>(SubversiveSubstituteRange)
 onoremap ie :exec "normal! ggVG"<cr>
 
 " plugin definitions for vim-plug
-source ~/.vim/plugins.vim
+call plug#begin('~/.vim/plugged')
+
+Plug 'tpope/vim-commentary'
+Plug 'vim-scripts/ReplaceWithRegister'
+Plug 'airblade/vim-gitgutter'
+Plug 'svermeulen/vim-subversive'
+Plug 'justinmk/vim-syntax-extra'
+Plug 'rafi/awesome-vim-colorschemes'
+Plug 'morhetz/gruvbox'
+Plug 'ludovicchabant/vim-gutentags'
+Plug 'junegunn/vim-slash'
+Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
+Plug 'junegunn/fzf.vim'
+Plug 'itchyny/lightline.vim'
+Plug 'tpope/vim-pathogen'
+Plug 'tpope/vim-surround'
+Plug 'tpope/vim-repeat'
+Plug 'tpope/vim-fugitive'
+Plug 'lervag/vimtex'
+Plug 'ying17zi/vim-live-latex-preview'
+Plug 'leafgarland/typescript-vim'
+
+call plug#end()
 
 " colorscheme
 colorscheme jellybeans
