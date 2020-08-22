@@ -100,9 +100,12 @@ Plug 'leafgarland/typescript-vim'
 
 call plug#end()
 
+let g:gruvbox_italic=1
+
 " colorscheme
-colorscheme jellybeans
+colorscheme gruvbox
 set background=dark
+set termguicolors
 
 " for vim-gitgutter
 
@@ -125,7 +128,7 @@ set noshowmode
 
 " colorscheme
 let g:lightline = {
-    \ 'colorscheme': 'jellybeans',
+    \ 'colorscheme': 'gruvbox',
     \ }
 
 " for vim-live-latex-preview
