@@ -75,6 +75,7 @@ Plug 'justinmk/vim-syntax-extra'
 Plug 'morhetz/gruvbox'
 Plug 'ludovicchabant/vim-gutentags'
 Plug 'junegunn/vim-slash'
+Plug 'junegunn/vim-peekaboo'
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
 Plug 'itchyny/lightline.vim'
@@ -85,6 +86,7 @@ Plug 'tpope/vim-fugitive'
 Plug 'lervag/vimtex'
 Plug 'ying17zi/vim-live-latex-preview'
 Plug 'leafgarland/typescript-vim'
+Plug 'mattn/emmet-vim'
 
 call plug#end()
 
@@ -103,6 +105,9 @@ let g:gutentags_ctags_tagfile=".tags"
 
 " show status line
 set laststatus=2
+
+nnoremap <silent> <leader>b :Buffers<cr>
+nnoremap <silent> <leader>e :Files<cr>
 
 " no need to show mode in cmd line
 set noshowmode
@@ -131,3 +136,13 @@ let g:lightline = {
 
 execute pathogen#infect()
 filetype plugin indent on
+
+" for vimtex
+
+let g:tex_flavor = 'latex'
+
+set keymap=tair
+set iminsert=0
+
+nnoremap <silent> <F6> a<C-^><ESC>:set rightleft!<CR>
+inoremap <silent> <F6> <C-^><C-O>:set rightleft!<CR>
