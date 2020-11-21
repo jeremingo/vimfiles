@@ -65,14 +65,14 @@ set updatetime=100
 " show signcolumn when there are no signs
 set signcolumn=yes
 
-if empty(glob('./autoload/plug.vim'))
-  silent !curl -fLo ./autoload/plug.vim --create-dirs
+if empty(glob('~/.vim/autoload/plug.vim'))
+  silent !curl -fLo ~/.vim/autoload/plug.vim --create-dirs
     \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
   autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
 endif
 
 " plugin definitions for vim-plug
-call plug#begin('./plugged')
+call plug#begin('~/.vim/plugged')
 
 Plug 'tpope/vim-commentary'
 Plug 'vim-scripts/ReplaceWithRegister'
