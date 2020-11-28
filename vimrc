@@ -122,6 +122,10 @@ nnoremap <silent> <leader>e :Files<cr>
 " no need to show mode in cmd line
 set noshowmode
 
+" set fzf layout to down
+let g:fzf_layout={'down': '40%'}
+
+" set fzf colors to match colorscheme
 let g:fzf_colors =
 \ { 'fg':      ['fg', 'Normal'],
   \ 'bg':      ['bg', 'Normal'],
