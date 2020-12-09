@@ -80,7 +80,6 @@ Plug 'vim-scripts/ReplaceWithRegister'
 Plug 'airblade/vim-gitgutter'
 Plug 'justinmk/vim-syntax-extra'
 Plug 'morhetz/gruvbox'
-Plug 'ludovicchabant/vim-gutentags'
 Plug 'junegunn/vim-slash'
 Plug 'junegunn/vim-peekaboo'
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
@@ -107,10 +106,6 @@ set termguicolors
 " set foreground and background colors
 let &t_8f = "\<Esc>[38;2;%lu;%lu;%lum"
 let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
-
-" for vim-gutentags
-
-let g:gutentags_ctags_tagfile=".tags"
 
 " for lightline.vim
 
