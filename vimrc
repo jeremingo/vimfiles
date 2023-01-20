@@ -74,7 +74,6 @@ endif
 " plugin definitions for vim-plug
 call plug#begin('~/.vim/plugged')
 
-Plug 'ycm-core/YouCompleteMe'
 Plug 'tpope/vim-commentary'
 Plug 'vim-scripts/ReplaceWithRegister'
 Plug 'airblade/vim-gitgutter'
@@ -93,6 +92,7 @@ Plug 'lervag/vimtex'
 Plug 'ying17zi/vim-live-latex-preview'
 Plug 'leafgarland/typescript-vim'
 Plug 'mattn/emmet-vim'
+Plug 'instant-markdown/vim-instant-markdown', { 'for': 'markdown', 'do': 'yarn install' }
 
 call plug#end()
 
