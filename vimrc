@@ -78,6 +78,7 @@ Plug 'tpope/vim-commentary'
 Plug 'vim-scripts/ReplaceWithRegister'
 Plug 'airblade/vim-gitgutter'
 Plug 'justinmk/vim-syntax-extra'
+Plug 'vim-python/python-syntax'
 Plug 'morhetz/gruvbox'
 Plug 'junegunn/vim-slash'
 Plug 'junegunn/vim-peekaboo'
@@ -141,6 +142,10 @@ let g:fzf_colors =
 let g:lightline = {
     \ 'colorscheme': 'gruvbox',
     \ }
+
+" for python-syntax
+
+let g:python_highlight_all = 1
 
 " for vim-live-latex-preview
 
