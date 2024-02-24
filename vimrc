@@ -115,6 +115,8 @@ set laststatus=2
 
 nnoremap <silent> <leader>b :Buffers<cr>
 nnoremap <silent> <leader>e :Files<cr>
+nnoremap <silent> <leader>r :!clear && %:p<CR>
+nnoremap <silent> <leader>w :w<CR>
 
 " no need to show mode in cmd line
 set noshowmode
