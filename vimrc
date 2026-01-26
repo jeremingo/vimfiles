@@ -163,3 +163,23 @@ set iminsert=0
 
 nnoremap <silent> <F6> a<C-^><ESC>:set rightleft!<CR>
 inoremap <silent> <F6> <C-^><C-O>:set rightleft!<CR>
+
+autocmd FileType gitcommit call s:PrefixGitCommit()
+
+function! s:PrefixGitCommit()
+  let l:noncomment = filter(filter(getline(1, 'S'), 'v:val !~ "^\h*$"'), 'v:val !~ "^\h*#"')
+
+  if !empty(l:noncomment)
+    return
+  endif
+
+  let l:branch = system('git rev-parse --abbrev-ref HEAD')
+  let l:branch = substitute(l:branch, '\n', '', '')
+
+  let l:issue = matchstr(l:branch, '\v^\d+')
+
+  if !empty(l:issue)
+    call append(0, 'gh-'.l:issue.' ')
+    call cursor(1, 1)
+  endif
+endfunction
