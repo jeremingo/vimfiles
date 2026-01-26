@@ -1,5 +1,6 @@
 " map leader to space
 let mapleader = " "
+let maplocalleader = "  "
 
 " syntax highlighting
 syntax on
