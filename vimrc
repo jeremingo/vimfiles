@@ -115,7 +115,7 @@ let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
 set laststatus=2
 
 nnoremap <silent> <leader>b :Buffers<cr>
-nnoremap <silent> <leader>e :Files<cr>
+nnoremap <silent> <leader>e :GFiles<cr>
 nnoremap <silent> <leader>r :!clear && %:p<CR>
 nnoremap <silent> <leader>w :w<CR>
 
