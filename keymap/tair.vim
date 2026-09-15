@@ -3,7 +3,7 @@
 " for) niqud, for utf:
 
 " Use this short name in the status line.
-let b:keymap_name = "tai"
+let b:keymap_name = "tair"
 loadkeymap
 a	<char-0x5e9>	" ש - shin
 x	<char-0x5e0>	" נ - nun
