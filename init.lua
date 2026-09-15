@@ -157,7 +157,7 @@ vim.keymap.set({ "n", "x" }, "gP", '"+P', { desc = "Paste from system clipboard"
 --   \ 'spinner': ['fg', 'Label'],
 --   \ 'header':  ['fg', 'Comment'] }
 
-vim.o.keymap="tair"
+vim.o.keymap="hebrew-dvorak"
 vim.o.iminsert=0
 
 vim.keymap.set('n', '<F6>', 'a<C-^><Esc>:set rightleft!<CR>', { silent = true })
