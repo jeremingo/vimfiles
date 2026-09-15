@@ -177,7 +177,7 @@ vim.api.nvim_create_autocmd("FileType", {
       vim.api.nvim_buf_set_lines(0, 0, 0, false, {
         "gh-" .. issue .. " ",
       })
-      vim.api.nvim_win_set_cursor(0, { 1, 1 })
+      vim.api.nvim_win_set_cursor(0, { 1, 0 })
     end
   end,
   desc = 'Insert gh-<issue_number> automatically to commit file when branch starts with number',
