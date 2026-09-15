@@ -113,14 +113,26 @@ require("lazy").setup({
     {
       'ying17zi/vim-live-latex-preview',
     },
+    {
+      'nvim-telescope/telescope.nvim', version = '*',
+      dependencies = {
+          'nvim-lua/plenary.nvim',
+          { 'nvim-telescope/telescope-fzf-native.nvim', build = 'make' },
+      },
+      init = function()
+        local builtin = require('telescope.builtin')
+        vim.keymap.set('n', '<leader>ff', builtin.find_files, { desc = 'Telescope find files' })
+        vim.keymap.set('n', '<leader>fg', builtin.live_grep, { desc = 'Telescope live grep' })
+        vim.keymap.set('n', '<leader>fb', builtin.buffers, { desc = 'Telescope buffers' })
+        vim.keymap.set('n', '<leader>fh', builtin.help_tags, { desc = 'Telescope help tags' })
+      end,
+    },
   },
   install = { colorscheme = { 'gruvbox' } },
   checker = { enabled = true },
   ui = { border = 'bold' },
 })
 
--- Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
--- Plug 'junegunn/fzf.vim'
 -- Plug 'instant-markdown/vim-instant-markdown', { 'for': 'markdown', 'do': 'yarn install' }
 
 vim.keymap.set('n', '<leader>h', function()
@@ -134,28 +146,7 @@ vim.keymap.set({ "n", "x" }, "gy", '"+y', { desc = "Copy to system clipboard" })
 vim.keymap.set({ "n", "x" }, "gp", '"+p', { desc = "Paste from system clipboard" })
 vim.keymap.set({ "n", "x" }, "gP", '"+P', { desc = "Paste from system clipboard" })
 
--- nnoremap <silent> <leader>b :Buffers<cr>
--- nnoremap <silent> <leader>e :GFiles<cr>
 -- nnoremap <silent> <leader>r :!clear && %:p<CR>
-
--- set fzf layout to down
--- let g:fzf_layout={'down': '40%'}
-
--- -- set fzf colors to match colorscheme
--- let g:fzf_colors =
--- \ { 'fg':      ['fg', 'Normal'],
---   \ 'bg':      ['bg', 'Normal'],
---   \ 'hl':      ['fg', 'Comment'],
---   \ 'fg+':     ['fg', 'CursorLine', 'CursorColumn', 'Normal'],
---   \ 'bg+':     ['bg', 'CursorLine', 'CursorColumn'],
---   \ 'hl+':     ['fg', 'Statement'],
---   \ 'info':    ['fg', 'PreProc'],
---   \ 'border':  ['fg', 'Ignore'],
---   \ 'prompt':  ['fg', 'Conditional'],
---   \ 'pointer': ['fg', 'Exception'],
---   \ 'marker':  ['fg', 'Keyword'],
---   \ 'spinner': ['fg', 'Label'],
---   \ 'header':  ['fg', 'Comment'] }
 
 vim.o.keymap="hebrew-dvorak"
 vim.o.iminsert=0
