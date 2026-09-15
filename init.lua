@@ -1,0 +1,190 @@
+-- map leader to space
+vim.g.mapleader = " "
+vim.g.maplocalleader = " "
+
+-- relative number lines and absolute line number on curser
+vim.o.number = true
+vim.o.relativenumber = true
+
+vim.opt.guicursor = { }
+
+-- cursorline
+vim.o.cursorline = true
+
+-- keep curser two lines from top and bottom
+vim.o.scrolloff = 2
+
+-- show matching bracket
+vim.o.showmatch = true
+vim.o.matchtime = 2
+
+--
+vim.o.expandtab = true
+vim.o.shiftwidth = 2
+vim.o.tabstop = 2
+
+-- auto indent
+vim.o.smartindent = true
+vim.o.linebreak = true
+vim.o.textwidth = 500
+vim.o.cinwords = ""
+
+--
+vim.opt.wildignore= { "*.o" , "*/.git/*" }
+vim.o.ignorecase = true
+vim.o.smartcase = true
+
+vim.g.clipboard = 'xsel'
+
+vim.api.nvim_create_autocmd('BufWinEnter', {
+  callback = function(args)
+    local ft = vim.bo[args.buf].filetype
+    local last_known_line = vim.api.nvim_buf_get_mark(args.buf, '"')[1]
+
+    if
+      not (ft:match('gitcommit') or ft:match('rebase'))
+      and last_known_line > 1
+      and last_known_line <= vim.api.nvim_buf_line_count(args.buf)
+    then
+      vim.cmd('normal! g`"')
+    end
+  end,
+})
+
+local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
+if not (vim.uv or vim.loop).fs_stat(lazypath) then
+  local lazyrepo = "https://github.com/folke/lazy.nvim.git"
+  local out = vim.fn.system({ "git", "clone", "--filter=blob:none", "--branch=stable", lazyrepo, lazypath })
+  if vim.v.shell_error ~= 0 then
+    vim.api.nvim_echo({
+      { "Failed to clone lazy.nvim:\n", "ErrorMsg" },
+      { out, "WarningMsg" },
+      { "\nPress any key to exit..." },
+    }, true, {})
+    vim.fn.getchar()
+    os.exit(1)
+  end
+end
+vim.opt.rtp:prepend(lazypath)
+
+require("lazy").setup({
+  spec = {
+    {
+      "brenoprata10/nvim-highlight-colors",
+      opts = {},
+    },
+    {
+      'lewis6991/gitsigns.nvim',
+      init = function()
+        vim.o.updatetime = 100
+        vim.opt.signcolumn = "yes"
+      end,
+    },
+    {
+      'ellisonleao/gruvbox.nvim',
+      priority = 1000,
+      opts = {},
+      init = function()
+        vim.o.termguicolors = true
+        vim.cmd [[colorscheme gruvbox]]
+      end,
+    },
+    {
+      'junegunn/vim-slash',
+    },
+    {
+      'kylechui/nvim-surround',
+    },
+    {
+      'nvim-lualine/lualine.nvim',
+      opts = {
+        options = {
+          icons_enabled = false,
+          section_separators = '', component_separators = '|'
+        }
+      },
+      init = function()
+        vim.o.showmode = false
+      end,
+    },
+    {
+      'junegunn/vim-peekaboo',
+    },
+    {
+      'ying17zi/vim-live-latex-preview',
+      ft = 'tex',
+    },
+    {
+      'nvim-telescope/telescope.nvim', version = '*',
+      dependencies = {
+          'nvim-lua/plenary.nvim',
+          { 'nvim-telescope/telescope-fzf-native.nvim', build = 'make' },
+      },
+      init = function()
+        local builtin = require('telescope.builtin')
+        vim.keymap.set('n', '<leader>ff', builtin.find_files, { desc = 'Telescope find files' })
+        vim.keymap.set('n', '<leader>fg', builtin.live_grep, { desc = 'Telescope live grep' })
+        vim.keymap.set('n', '<leader>fb', builtin.buffers, { desc = 'Telescope buffers' })
+        vim.keymap.set('n', '<leader>fh', builtin.help_tags, { desc = 'Telescope help tags' })
+      end,
+    },
+    {
+      "instant-markdown/vim-instant-markdown",
+      ft = "markdown",
+      build = "npm install",
+    },
+  },
+  install = { colorscheme = { 'gruvbox' } },
+  checker = { enabled = true },
+  ui = { border = 'bold' },
+})
+
+
+vim.keymap.set('n', '<leader>h', function()
+  local word = vim.fn.expand('<cword>')
+  vim.cmd('help ' .. "'" .. word .. "'")
+end, { desc = 'Get Neovim help for word under cursor' })
+
+vim.keymap.set('n', '<leader>w', '<cmd>w<cr>', { desc = 'Write buffer' })
+
+vim.keymap.set({ "n", "x" }, "gy", '"+y', { desc = "Copy to system clipboard" })
+vim.keymap.set({ "n", "x" }, "gp", '"+p', { desc = "Paste from system clipboard" })
+vim.keymap.set({ "n", "x" }, "gP", '"+P', { desc = "Paste from system clipboard" })
+
+-- nnoremap <silent> <leader>r :!clear && %:p<CR>
+
+vim.o.keymap="hebrew-dvorak"
+vim.o.iminsert=0
+
+vim.keymap.set('n', '<F6>', 'a<C-^><Esc>:set rightleft!<CR>', { silent = true })
+vim.keymap.set('i', '<F6>', '<C-^><C-O>:set rightleft!<CR>', { silent = true })
+
+vim.api.nvim_create_autocmd("FileType", {
+  pattern = "gitcommit",
+  callback = function()
+    local lines = vim.api.nvim_buf_get_lines(0, 0, -1, false)
+
+    for _, line in ipairs(lines) do
+      if line:match("%S") and not line:match("^%s*#") then
+        return
+      end
+    end
+
+    local result = vim.system({ "git", "rev-parse", "--abbrev-ref", "HEAD", }):wait()
+
+    if result.code ~= 0 then
+      return
+    end
+
+    local issue = result.stdout:match("^(%d+)")
+
+    if issue then
+      vim.api.nvim_buf_set_lines(0, 0, 0, false, {
+        "gh-" .. issue .. " ",
+      })
+      vim.api.nvim_win_set_cursor(0, { 1, 0 })
+    end
+  end,
+  desc = 'Insert gh-<issue_number> automatically to commit file when branch starts with number',
+})
+
