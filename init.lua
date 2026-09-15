@@ -112,6 +112,7 @@ require("lazy").setup({
     },
     {
       'ying17zi/vim-live-latex-preview',
+      ft = 'tex',
     },
     {
       'nvim-telescope/telescope.nvim', version = '*',
