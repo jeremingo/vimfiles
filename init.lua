@@ -127,13 +127,17 @@ require("lazy").setup({
         vim.keymap.set('n', '<leader>fh', builtin.help_tags, { desc = 'Telescope help tags' })
       end,
     },
+    {
+      "instant-markdown/vim-instant-markdown",
+      ft = "markdown",
+      build = "npm install",
+    },
   },
   install = { colorscheme = { 'gruvbox' } },
   checker = { enabled = true },
   ui = { border = 'bold' },
 })
 
--- Plug 'instant-markdown/vim-instant-markdown', { 'for': 'markdown', 'do': 'yarn install' }
 
 vim.keymap.set('n', '<leader>h', function()
   local word = vim.fn.expand('<cword>')
