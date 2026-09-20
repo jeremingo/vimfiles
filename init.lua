@@ -188,3 +188,18 @@ vim.api.nvim_create_autocmd("FileType", {
   desc = 'Insert gh-<issue_number> automatically to commit file when branch starts with number',
 })
 
+vim.g.netrw_list_hide = [[\v^\.(|\.)/$]]
+vim.api.nvim_set_hl(0, "netrwMarkFile", { link = "Search" })
+
+vim.api.nvim_create_autocmd('FileType', {
+  pattern = 'netrw',
+  callback = function()
+    vim.keymap.set('n', '.', 'gh', { buffer = true })
+    vim.keymap.set('n', 'l', '<CR>', { buffer = true, remap = true })
+    vim.keymap.set('n', 'gl', 'l', { buffer = true })
+    vim.keymap.set('n', 'h', '-', { buffer = true, remap = true })
+    vim.keymap.set('n', 'gh', 'h', { buffer = true })
+    vim.keymap.set('n', 'q', '<cmd>bd<CR>', { buffer = true, remap = true, silent = true })
+  end
+})
+
