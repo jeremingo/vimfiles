@@ -93,6 +93,10 @@ require("lazy").setup({
       'junegunn/vim-slash',
     },
     {
+      'stevearc/oil.nvim',
+      opts = {},
+    },
+    {
       'kylechui/nvim-surround',
     },
     {
