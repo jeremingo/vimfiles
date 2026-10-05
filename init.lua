@@ -137,6 +137,67 @@ require("lazy").setup({
       ft = "markdown",
       build = "npm install",
     },
+    {
+      "neovim/nvim-lspconfig",
+      config = function()
+        -- Lua
+        vim.lsp.config("lua_ls", {
+          settings = {
+            Lua = {
+              diagnostics = {
+                globals = { "vim" },
+              },
+              workspace = {
+                library = vim.api.nvim_get_runtime_file("", true),
+              },
+            },
+          },
+        })
+
+        vim.lsp.enable("lua_ls")
+
+        vim.lsp.enable("clang")
+
+      end,
+    },
+    {
+      "saghen/blink.cmp",
+      dependencies = {
+        "saghen/blink.lib",
+        "rafamadriz/friendly-snippets",
+      },
+
+      build = function()
+        require("blink.cmp").build():pwait()
+      end,
+      opts = {
+        keymap = {
+          preset = "default",
+        },
+        completion = {
+          documentation = {
+            auto_show = true,
+          },
+        },
+
+        sources = {
+          default = {
+            "lsp",
+            "path",
+            "snippets",
+            "buffer",
+          },
+        },
+
+        fuzzy = {
+          implementation = "rust",
+        },
+      },
+    },
+    {
+      "nvim-treesitter/nvim-treesitter",
+      build = ":TSUpdate"
+    },
   },
   install = { colorscheme = { 'gruvbox' } },
   checker = { enabled = true },
