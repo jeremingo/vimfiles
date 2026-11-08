@@ -97,7 +97,21 @@ require("lazy").setup({
     },
     {
       'stevearc/oil.nvim',
-      opts = {},
+      opts = {
+        view_options = {
+          show_hidden = true,
+          is_always_hidden = function(name, _)
+            if name == '.git' or name == '..' then
+              return true
+            end
+
+            return false
+          end
+        },
+      },
+      init = function()
+        vim.keymap.set('n', '-', '<CMD>Oil<CR>', { desc = 'Open parent directory' })
+      end,
     },
     {
       'kylechui/nvim-surround',
