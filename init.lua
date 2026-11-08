@@ -18,6 +18,9 @@ vim.o.scrolloff = 2
 vim.o.showmatch = true
 vim.o.matchtime = 2
 
+-- borders for all floating windows
+vim.o.winborder = 'rounded'
+
 --
 vim.o.expandtab = true
 vim.o.shiftwidth = 2
@@ -201,7 +204,6 @@ require("lazy").setup({
   },
   install = { colorscheme = { 'gruvbox' } },
   checker = { enabled = true },
-  ui = { border = 'bold' },
 })
 
 
